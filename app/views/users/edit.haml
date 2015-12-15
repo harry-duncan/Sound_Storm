@@ -1,28 +1,28 @@
 / #add all th eprofile stuff to be editited here 
 
-= form_for @user, :html => { :multipart => true } do |f|
+= form_for @user, :class => 'form-inline', :html => { :multipart => true } do |f|
 	= f.label :name
-	= f.text_field :name, :required => true
+	= f.text_field :name, :autofocus => :true, :required => true, :class => 'form-control'
 
 	= f.label :email
-	= f.email_field :email, :required => true
+	= f.email_field :email, :autofocus => :true, :required => true, :class => 'form-control'
 
 	= f.label :bio
-	= f.text_field :bio
+	= f.text_field :bio, :autofocus => :true, :class => 'form-control'
 
 	= f.label :facebook
-	= f.text_field :social_facebook
+	= f.text_field :social_facebook, :autofocus => :true, :class => 'form-control'
 
 	= f.label :twitter
-	= f.text_field :social_twitter
+	= f.text_field :social_twitter, :autofocus => :true, :class => 'form-control'
 
 	= f.label :instagram
-	= f.text_field :social_instagram
+	= f.text_field :social_instagram, :autofocus => :true, :class => 'form-control'
 
 	= f.label :Profile_Picture
-	= f.cl_image_upload :image
+	= f.cl_image_upload :image, :autofocus => :true, :class => 'form-control'
 
 	= f.label :Cover_photo
-	= f.cl_image_upload :cover_photo
+	= f.cl_image_upload :cover_photo, :autofocus => :true, :class => 'form-control'
 	
-	= f.submit
+	= f.submit :class => 'btn btn-primary'

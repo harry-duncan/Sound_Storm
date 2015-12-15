@@ -2,9 +2,9 @@
 	%h2= flash[:error]
 
 
-= form_tag '/login' do 
+= form_tag '/login', :class => 'form-inline' do 
 	= label_tag :email
-	= text_field_tag :email, nil, :autofocus => :true, :required => true
+	= text_field_tag :email, nil, :autofocus => :true, :required => true, :class => 'form-control'
 	= label_tag :password
-	= password_field_tag :password, nil, :required => true
-	= submit_tag 'login'
+	= password_field_tag :password, nil, :required => true, :class => 'form-control'
+	= submit_tag 'login', :class => 'btn btn-primary'

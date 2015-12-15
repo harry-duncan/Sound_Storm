@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
     if params[:file]
       req = Cloudinary::Uploader.upload params[:file]
+      raise "hell"
       user_details[:image] = req["url"]
     else
       user_details[:image] = "https://socialbelly.com/assets/icons/blank_user-586bd979abac4d7c7007414f5e94fe71.png"

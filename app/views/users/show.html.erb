@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-3"><%= cl_image_tag(@current_user.image, :width => 200, :height => 200, :crop => :fill) %></div>
-		<div class="cover_photo col-md-12"><%= image_tag(@current_user.image) %></div>
+		<div class="col-md-3"><%= cl_image_tag(@current_user.image, :width => 200, :height => 200, :crop => :fill, :class => "img-thumbnail") %></div>
+		<div class="cover_photo col-md-12 "><%= image_tag(@current_user.cover_photo) %></div>
 	</div>
 	<h6>this is <%= @current_user.name %>'s profile</h6>
 </div>
@@ -18,7 +18,7 @@
           </ul> 
                
           <div class="panel panel-default">
-            <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
+            <div class="panel-heading">Bio <i class="fa fa-link fa-1x"></i></div>
             <div class="panel-body"><a href="http://bootply.com">bootply.com</a></div>
           </div>
           
