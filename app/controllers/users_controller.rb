@@ -10,21 +10,30 @@ class UsersController < ApplicationController
   	@user = User.new
   end
 
+  def show
+    @user = @current_user
+  end
+
   def create
   	user_details = user_params
 
-    req = Cloudinary::Uploader.upload params[:file]
-    user_details[:image] = req["url"]
+    if params[:file]
+      req = Cloudinary::Uploader.upload params[:file]
+      user_details[:image] = req["url"]
+    else
+      user_details[:image] = "https://socialbelly.com/assets/icons/blank_user-586bd979abac4d7c7007414f5e94fe71.png"
+    end
 
     @user = User.new(user_details)
   	if @user.save
-  		redirect_to(root_path)
+      session[:user_id] = @user.id
+  		redirect_to(user_path(@user))
   	else
   		render :new
 	  end
 	end
 
-  def edit #this is to edit the profiles
+  def edit
     @user = @current_user
   end
 
@@ -32,16 +41,19 @@ class UsersController < ApplicationController
     @user = @current_user
     user_details = user_params
 
-    req = Cloudinary::Uploader.upload params[:file]
-    user_details[:image] = req["url"]
+    if params[:file]
+      req = Cloudinary::Uploader.upload params[:file]
+      user_details[:image] = req["url"]
+    end
+
     @user.update(user_details)
 
-    redirect_to root_path
+    redirect_to root_path, notice: "You have succesfully updated your picture"
   end
 
   private
   def user_params
-  	params.require(:user).permit(:name, :email, :image, :bio, :social_facebook, :social_instagram, :social_twitter, :artist, :password, :password_confirmation)
+  	params.require(:user).permit(:name, :email, :image, :bio, :social_facebook, :social_instagram, :social_twitter, :artist, :password, :password_confirmation, :cover_photo)
   end
 
   def check_if_artist

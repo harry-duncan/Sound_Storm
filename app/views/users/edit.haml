@@ -3,8 +3,26 @@
 = form_for @user, :html => { :multipart => true } do |f|
 	= f.label :name
 	= f.text_field :name, :required => true
+
 	= f.label :email
 	= f.email_field :email, :required => true
-	= f.label :image
+
+	= f.label :bio
+	= f.text_field :bio
+
+	= f.label :facebook
+	= f.text_field :social_facebook
+
+	= f.label :twitter
+	= f.text_field :social_twitter
+
+	= f.label :instagram
+	= f.text_field :social_instagram
+
+	= f.label :Profile_Picture
 	= f.cl_image_upload :image
+
+	= f.label :Cover_photo
+	= f.cl_image_upload :cover_photo
+	
 	= f.submit

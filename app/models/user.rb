@@ -14,6 +14,7 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  password_digest  :text
+#  cover_photo      :text
 #
 
 class User < ActiveRecord::Base
