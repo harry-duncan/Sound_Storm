@@ -13,10 +13,11 @@
 #  artist           :boolean          default(FALSE)
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  password_digest  :text
 #
 
 class User < ActiveRecord::Base
-	has_secure_password
+	has_secure_password 
 	has_many :playlists 
 	has_many :tracks
 	has_many :genres, :through => :tracks

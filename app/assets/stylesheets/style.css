@@ -1,0 +1,9 @@
+nav li img {
+	margin-left: 15px;
+	padding-top: 10px;
+	width: 30px;
+}
+
+input, label {
+	display: block;
+}

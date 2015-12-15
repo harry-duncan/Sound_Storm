@@ -1,0 +1,19 @@
+- if @user.errors.any? 
+	%ol
+		- @user.errors.full_messages.each do |msg|
+			%li= msg
+
+= form_for @user do |f|
+	.form-group
+		= f.label :name
+		= f.text_field :name, :required => true, :class => 'form-control'
+	.form-group
+		= f.label :email
+		= f.email_field :email, :required => true, :class => 'form-control'
+	.form-group
+		= f.label :password
+		= f.password_field :password, :required => true, :class => 'form-control'
+	.form-group
+		= f.label :passord_confirmation
+		= f.password_field :password_confirmation, :required => true, :class => 'form-control'
+	= f.submit :class => 'btn btn-primary'

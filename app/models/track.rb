@@ -7,6 +7,7 @@
 #  file       :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  album_id   :integer
 #
 
 class Track < ActiveRecord::Base

@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dveconq3w
+  api_key: '222751494151314'
+  api_secret: uyAdNM__LfwLwH-4STVPPXT4y6k
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dveconq3w
+  api_key: '222751494151314'
+  api_secret: uyAdNM__LfwLwH-4STVPPXT4y6k
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dveconq3w
+  api_key: '222751494151314'
+  api_secret: uyAdNM__LfwLwH-4STVPPXT4y6k
+  enhance_image_tag: true
+  static_image_support: false

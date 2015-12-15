@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SoundStorm</title>
+  <title>Sound Storm</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= params[:controller] %>">
 
-<%= yield %>
+	<%= render :partial => "layouts/nav" %>
 
+	<div class="container">
+		<%= yield %>
+	</div>
 </body>
 </html>

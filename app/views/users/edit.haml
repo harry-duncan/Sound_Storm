@@ -1,0 +1,10 @@
+/ #add all th eprofile stuff to be editited here 
+
+= form_for @user, :html => { :multipart => true } do |f|
+	= f.label :name
+	= f.text_field :name, :required => true
+	= f.label :email
+	= f.email_field :email, :required => true
+	= f.label :image
+	= f.cl_image_upload :image
+	= f.submit

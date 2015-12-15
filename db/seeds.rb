@@ -25,11 +25,11 @@ a3 = Album.create :name => 'Bass Central'
 
 User.destroy_all
 
-u1 = User.create :name => 'Colin', :email => 'colin@gmail.com', :image => 'https://socialbelly.com/assets/icons/blank_user-586bd979abac4d7c7007414f5e94fe71.png', :bio => 'This is a small bio', :social_facebook => 'www.facebook.com', :social_twitter => 'www.twitter.com', :social_instagram => 'www.instagram.com', :artist => false
+u1 = User.create :name => 'Colin', :email => 'colin@gmail.com', :image => 'https://socialbelly.com/assets/icons/blank_user-586bd979abac4d7c7007414f5e94fe71.png', :bio => 'This is a small bio', :social_facebook => 'www.facebook.com', :social_twitter => 'www.twitter.com', :social_instagram => 'www.instagram.com', :artist => true, :password => "chicken", :password_confirmation => "chicken"
 
-u2 = User.create :name => 'Harry', :email => 'harry@gmail.com', :image => 'https://socialbelly.com/assets/icons/blank_user-586bd979abac4d7c7007414f5e94fe71.png', :bio => 'This is a small bio', :social_facebook => 'www.facebook.com', :social_twitter => 'www.twitter.com', :social_instagram => 'www.instagram.com', :artist => false
+u2 = User.create :name => 'Harry', :email => 'harry@gmail.com', :image => 'https://socialbelly.com/assets/icons/blank_user-586bd979abac4d7c7007414f5e94fe71.png', :bio => 'This is a small bio', :social_facebook => 'www.facebook.com', :social_twitter => 'www.twitter.com', :social_instagram => 'www.instagram.com', :artist => false, :password => "chicken", :password_confirmation => "chicken"
 
-u3 = User.create :name => 'Minibro', :email => 'minibro@gmail.com', :image => 'https://socialbelly.com/assets/icons/blank_user-586bd979abac4d7c7007414f5e94fe71.png', :bio => 'This is a small bio', :social_facebook => 'www.facebook.com', :social_twitter => 'www.twitter.com', :social_instagram => 'www.instagram.com', :artist => false
+u3 = User.create :name => 'Minibro', :email => 'minibro@gmail.com', :image => 'https://socialbelly.com/assets/icons/blank_user-586bd979abac4d7c7007414f5e94fe71.png', :bio => 'This is a small bio', :social_facebook => 'www.facebook.com', :social_twitter => 'www.twitter.com', :social_instagram => 'www.instagram.com', :artist => false, :password => "chicken", :password_confirmation => "chicken"
 
 
 Playlist.destroy_all
@@ -40,11 +40,6 @@ m2 = Playlist.create :name => 'Driving'
 
 m3 = Playlist.create :name => 'Gym'
 
-
-r1.tracks << t1
-r2.tracks << t3
-r3.tracks << t2
-
 a1.tracks << t1
 a2.tracks << t3
 a3.tracks << t2
@@ -52,8 +47,7 @@ a3.tracks << t2
 g1.tracks << t2
 g1.tracks << t1
 g1.tracks << t3
-
-
+	
 m1.tracks << t1 << t2 << t3
 m2.tracks << t2 << t3
 m3.tracks << t3
