@@ -54,7 +54,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-  	params.require(:user).permit(:name, :email, :image, :bio, :social_facebook, :social_instagram, :social_twitter, :artist, :password, :password_confirmation, :cover_photo)
+  	params.require(:user).permit(:name, :user_name, :email, :image, :bio, :social_facebook, :social_instagram, :social_twitter, :social_github, :artist, :password, :password_confirmation, :cover_photo)
   end
 
   def check_if_artist

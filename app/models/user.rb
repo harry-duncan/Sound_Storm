@@ -15,6 +15,8 @@
 #  updated_at       :datetime         not null
 #  password_digest  :text
 #  cover_photo      :text
+#  user_name        :text
+#  social_github    :text
 #
 
 class User < ActiveRecord::Base

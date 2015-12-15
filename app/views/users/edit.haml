@@ -4,6 +4,9 @@
 	= f.label :name
 	= f.text_field :name, :autofocus => :true, :required => true, :class => 'form-control'
 
+	= f.label :user_name
+	= f.text_field :user_name, :autofocus => :true, :required => true, :class => 'form-control'
+
 	= f.label :email
 	= f.email_field :email, :autofocus => :true, :required => true, :class => 'form-control'
 
@@ -18,6 +21,9 @@
 
 	= f.label :instagram
 	= f.text_field :social_instagram, :autofocus => :true, :class => 'form-control'
+
+	= f.label :github
+	= f.text_field :social_github, :autofocus => :true, :class => 'form-control'
 
 	= f.label :Profile_Picture
 	= f.cl_image_upload :image, :autofocus => :true, :class => 'form-control'
