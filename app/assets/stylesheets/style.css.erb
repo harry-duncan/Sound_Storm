@@ -1,3 +1,8 @@
+body { 
+	padding-top: 70px; 
+}
+
+
 input, label {
 	display: block;
 }
@@ -36,4 +41,16 @@ ul li img {
 
 .social {
 	padding-left: 23px;
+}
+
+img {
+  filter: gray; /* IE6-9 */
+  filter: grayscale(1); /* Firefox 35+ */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+}
+
+/* Disable grayscale on hover */
+img:hover {
+  filter: none;
+  -webkit-filter: grayscale(0);
 }

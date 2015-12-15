@@ -1,7 +1,6 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-3"><%= cl_image_tag(@current_user.image, :width => 200, :height => 200, :crop => :fill, :class => "img-thumbnail") %></div>
-		<div class="cover_photo col-md-12 "><%= image_tag(@current_user.cover_photo) %></div>
 	</div>
   <div class="page-header">
   <h1><%= @current_user.name %></h1>
@@ -33,5 +32,3 @@
       </div>
    </div>
 </div><!--/col-3-->
-
-a 
