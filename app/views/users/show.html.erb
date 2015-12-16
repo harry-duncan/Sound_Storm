@@ -5,7 +5,6 @@
         background-image: url( <%= asset_path @current_user.cover_photo %> );
       } 
     </style>
-
   	<div class="jumbotron col-md-12">
       <%= cl_image_tag(@current_user.image, :width => 200, :height => 200, :crop => :fill, :class => "img-thumbnail") %>
     </div> 
