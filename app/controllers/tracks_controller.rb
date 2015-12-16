@@ -10,6 +10,9 @@ class TracksController < ApplicationController
   	req = Cloudinary::Uploader.upload params[:track][:file], :resource_type => :video
   	track_details[:file] = req["url"]
 
+  	track = Track.create track_details
+  	@current_user.tracks << track
+
   	redirect_to @current_user
   end
 
