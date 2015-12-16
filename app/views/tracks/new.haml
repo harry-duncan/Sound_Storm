@@ -1,0 +1,15 @@
+.page-header
+	%h1 
+		Example page header 
+		%small Subtext for header
+
+= form_for @track do |f|
+	.form-group
+		= f.label :name
+		= f.text_field :name, :autofocus => :true, :required => true, :class => 'form-control'
+
+		= f.label :file
+		= f.file_field :file, :autofocus => :true, :required => true, :class => 'form-control'
+		= f.submit :class => 'btn btn-primary edit-page-button'
+
+
