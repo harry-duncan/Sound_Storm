@@ -8,7 +8,28 @@
 <br>
 <br>
 
-
+<script type="text/javascript">
+$(document).ready(function(){
+  $("#jquery_jplayer_1").jPlayer({
+    ready: function () {
+      $(this).jPlayer("setMedia", {
+        title: "Bubble",
+        m4a: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
+        oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+      });
+    },
+    cssSelectorAncestor: "#jp_container_1",
+    swfPath: "/js",
+    supplied: "m4a, oga",
+    useStateClassSkin: true,
+    autoBlur: false,
+    smoothPlayBar: true,
+    keyEnabled: true,
+    remainingDuration: true,
+    toggleDuration: true
+  });
+});
+</script>
 <div id="jquery_jplayer_1" class="jp-jplayer"></div>
 <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
   <div class="jp-type-single">
