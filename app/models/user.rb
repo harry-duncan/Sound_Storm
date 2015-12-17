@@ -21,6 +21,7 @@
 
 class User < ActiveRecord::Base
 	has_secure_password 
+	has_many :reposts
 	has_many :playlists 
 	has_many :tracks
 	has_many :genres, :through => :tracks

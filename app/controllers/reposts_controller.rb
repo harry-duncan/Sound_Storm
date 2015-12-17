@@ -4,4 +4,7 @@ class RepostsController < ApplicationController
 		redirect_to :back
 	end
 		
+	def index
+		@reposts = @current_user.reposts
+	end
 end

@@ -1,59 +1,17 @@
-<div class="container-fluid">
-	<div class="row">
-    <style>
-      .jumbotron {
-        background-image: url( <%= asset_path @current_user.cover_photo %> );
-      } 
-    </style>
-  	<div class="jumbotron col-md-12">
-      <%= cl_image_tag(@current_user.image, :width => 200, :height => 200, :crop => :fill, :class => "img-thumbnail") %>
-    </div> 
-  </div>
-  <div class="page-header">
-    <h1><%= @current_user.name %></h1>
-    <small> <%= @current_user.user_name %></small>
-  </div>
-</div>
+<h2 class="repost-stream">Repost Stream</h2> 
+
 <div class="row">
-	<div class="col-sm-3"><!--left col-->   
-    <div class="panel panel-default">
-      <div class="panel-heading">Bio <i class="fa fa-diamond fa-1x"></i></div>
-      <div class="panel-body"><%= @current_user.bio %></div>
-    </div>
-    <ul class="list-group">
-      <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
-      <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
-      <li class="list-group-item text-right"><span class="pull-left"><strong>Reposts</strong></span> 37</li>
-      <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
-    </ul> 
-    <div class="panel panel-default">
-      <div class="panel-heading">Social Media</div>
-      <div class="panel-body">
-        <%= link_to(@current_user.social_facebook) do %>
-      	 <i class="social fa fa-facebook fa-2x"></i>
-        <% end %>
-        <%= link_to(@current_user.social_instagram) do %>
-      	 <i class="social fa fa-instagram fa-2x"></i>
-        <% end %>
-        <%= link_to(@current_user.social_twitter) do %>
-      	 <i class="social fa fa-twitter fa-2x"></i> 
-        <% end %>
-        <%= link_to(@current_user.social_github) do %>
-      	 <i class="social fa fa-github fa-2x"></i> 
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-9">
-    <% @current_user.tracks.each do |track| %>
+  <div class="col-md-12">
+    <% @tracks = @current_user.present? ? @current_user.tracks : Track.all %>
+    <% @current_user.reposts.all.each do |repost| %>
       <div class="player">
         <script type="text/javascript">
         $(document).ready(function(){
           $("#jquery_jplayer_<%= track.id %>").jPlayer({
             ready: function () {
               $(this).jPlayer("setMedia", {
-                title: "<%= track.name %>",
-                m4a: "<%= track.file %>"
+                title: "<%= repost.name %>",
+                m4a: "<%= repost.file %>"
               });
             },
             cssSelectorAncestor: "#jp_container_<%= track.id %>",
@@ -100,12 +58,14 @@
               <div class="jp-title" aria-label="title">&nbsp;</div>
             </div>
             <div class="player-info">
+              <% if @current_user.present? && @current_user.image.present? %>
               <%= link_to( cl_image_tag(@current_user.image, :width => 35, :height => 35, :crop => :fill, :class => "img-rounded profile-pic"), user_path(@current_user), :class => 'profile-pic-link-player' ) %>
-              <%= track.user.name %>
+              <% end %>
+              <%= track.user.name %>    
               <%= cl_image_tag(track.file.gsub('.mp3', '.png').gsub(/.*\/([\/]*)/, '\1'), :background=>"white", :color=>"purple", :width=>500, :height=>200, :class => "waveform", :flags=>:waveform, :resource_type=>"video") -%>
-              <%= button_to 'Repost', {:controller => "reposts", :action => "create", :track_id => track.id, :class => "repost-button"} %>
-              </div>
-              <div class="jp-no-solution">
+              <%= button_to 'Repost', {:controller => "reposts", :action => "create", :track_id => track.id} %>
+            </div>
+            <div class="jp-no-solution">
               <span>Update Required</span>
               To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
             </div>
@@ -114,4 +74,4 @@
       </div>
     <% end %>
   </div>
-</div><!--/col-3-->
+</div>
