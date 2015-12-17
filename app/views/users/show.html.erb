@@ -99,6 +99,12 @@
             <div class="jp-details">
               <div class="jp-title" aria-label="title">&nbsp;</div>
             </div>
+            <div class="something">
+              <%= track.user.name %>
+              testeest
+              <%= track.file.gsub('.mp3', '.png') %>
+              <%= cl_image_tag(track.file.gsub('.mp3', '.png').gsub(/.*\/([\/]*)/, '\1'), :background=>"white", :color=>"black", :width=>500, :height=>200, :flags=>:waveform, :resource_type=>"video") -%>
+            </div>
             <div class="jp-no-solution">
               <span>Update Required</span>
               To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
@@ -109,3 +115,12 @@
     <% end %>
   </div>
 </div><!--/col-3-->
+
+<li class="nav_bar_img"><%= link_to( cl_image_tag(@current_user.image, :width => 35, :height => 35, :crop => :fill, :class => "img-rounded profile-pic"), user_path(@current_user), :class => 'profile-pic-link' ) %></li>
+
+
+@track.user.image
+
+@track.user.name
+
+@track.user
