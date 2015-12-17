@@ -22,9 +22,7 @@
     </div>
     <ul class="list-group">
       <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
-      <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
-      <li class="list-group-item text-right"><span class="pull-left"><strong>Reposts</strong></span> 37</li>
-      <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
+      <li class="list-group-item text-right"><span class="pull-left"><strong>Reposts</strong></span><%= @current_user.reposts.count %></li>
     </ul> 
     <div class="panel panel-default">
       <div class="panel-heading">Social Media</div>
@@ -103,7 +101,7 @@
               <%= link_to( cl_image_tag(@current_user.image, :width => 35, :height => 35, :crop => :fill, :class => "img-rounded profile-pic"), user_path(@current_user), :class => 'profile-pic-link-player' ) %>
               <%= track.user.name %>
               <%= cl_image_tag(track.file.gsub('.mp3', '.png').gsub(/.*\/([\/]*)/, '\1'), :background=>"white", :color=>"purple", :width=>500, :height=>200, :class => "waveform", :flags=>:waveform, :resource_type=>"video") -%>
-              <%= button_to 'Repost', {:controller => "reposts", :action => "create", :track_id => track.id, :class => "repost-button"} %>
+              <%= button_to 'Repost', {:controller => "reposts", :action => "create", :track_id => track.id}, :class => "repost-button" %>
               </div>
               <div class="jp-no-solution">
               <span>Update Required</span>
