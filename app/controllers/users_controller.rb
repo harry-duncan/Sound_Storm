@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = @current_user
+
   end
 
   def create
@@ -80,3 +81,4 @@ class UsersController < ApplicationController
     redirect_to root_path unless @current_user.present?
   end
 end
+ 
