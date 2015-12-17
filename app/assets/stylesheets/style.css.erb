@@ -89,7 +89,35 @@ ul li a.profile-pic-link {
 
 .player {
 	margin-bottom: 15px;
-	width: 600px;
+	width: 100%;
 	border: 1px solid blue;
+	position: relative;
 }
 
+.waveform {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 70%;	
+  height: 100%;
+}
+
+@media ( max-width: 600px ) {
+
+
+	.player {
+		margin-bottom: 15px;
+		width: 100%;
+		border: 1px solid blue;
+		position: relative;
+	}
+
+	.waveform {
+	  position: absolute;
+	  top: 0;
+	  right: 0;
+	  width: 70%;	
+	}
+
+
+}
