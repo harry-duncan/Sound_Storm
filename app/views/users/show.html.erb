@@ -53,7 +53,7 @@
           $("#jquery_jplayer_<%= track.id %>").jPlayer({
             ready: function () {
               $(this).jPlayer("setMedia", {
-                title: "Bubble",
+                title: "<%= track.name %>",
                 m4a: "<%= track.file %>"
               });
             },
