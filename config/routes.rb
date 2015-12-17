@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   delete '/login' => 'session#destroy'
 
   resources :tracks
+  resources :reposts
 
 end

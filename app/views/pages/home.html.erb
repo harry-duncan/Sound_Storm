@@ -11,7 +11,8 @@
 
 <div class="row">
   <div class="col-md-12">
-    <% @current_user.tracks.each do |track| %>
+    <% @tracks = @current_user.present? ? @current_user.tracks : Track.all %>
+    <% @tracks.each do |track| %>
       <div class="player">
         <script type="text/javascript">
         $(document).ready(function(){
@@ -65,11 +66,15 @@
             <div class="jp-details">
               <div class="jp-title" aria-label="title">&nbsp;</div>
             </div>
-            <div class="something">
+            <div class="player-info">
               <%= track.user.name %>
-              <%= link_to( cl_image_tag(@current_user.image, :width => 35, :height => 35, :crop => :fill, :class => "img-rounded profile-pic"), user_path(@current_user), :class => 'profile-pic-link' ) %>
+              <%= button_to 'Repost', {:controller => "reposts", :action => "create", :track_id => track.id} %>
+<% if @current_user.present? && @current_user.image.present? %>
+              <%= link_to( cl_image_tag(@current_user.image, :width => 35, :height => 35, :crop => :fill, :class => "img-rounded profile-pic"), user_path(@current_user), :class => 'profile-pic-link-player' ) %>
+<% end %>              
               <%= cl_image_tag(track.file.gsub('.mp3', '.png').gsub(/.*\/([\/]*)/, '\1'), :background=>"white", :color=>"purple", :width=>500, :height=>200, :class => "waveform", :flags=>:waveform, :resource_type=>"video") -%>
             </div>
+
             <div class="jp-no-solution">
               <span>Update Required</span>
               To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.

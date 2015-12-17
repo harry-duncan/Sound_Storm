@@ -90,7 +90,7 @@ ul li a.profile-pic-link {
 .player {
 	margin-bottom: 15px;
 	width: 100%;
-	border: 1px solid blue;
+/*	border: 1px solid blue;*/
 	position: relative;
 }
 
@@ -103,21 +103,32 @@ ul li a.profile-pic-link {
 }
 
 @media ( max-width: 600px ) {
-
-
 	.player {
 		margin-bottom: 15px;
 		width: 100%;
-		border: 1px solid blue;
+/*		border: 1px solid blue;*/
 		position: relative;
 	}
-
 	.waveform {
 	  position: absolute;
 	  top: 0;
 	  right: 0;
 	  width: 70%;	
 	}
+}
 
+.profile-pic-link-player {
+	margin-left: 160px;
+	 filter: gray;
+  filter: grayscale(1); 
+  -webkit-filter: grayscale(1);
+}
 
+.profile-pic-link-player:hover {
+	 filter: none;
+  -webkit-filter: grayscale(0);
+}
+
+.repost {
+	margin-left: 15px;
 }
